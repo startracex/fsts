@@ -1,0 +1,20 @@
+{
+  "extends": "@startracex/dev-config/tsconfig/app",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "incremental": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": []
+}
