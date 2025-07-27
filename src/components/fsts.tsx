@@ -64,10 +64,17 @@ export default function Component() {
   const blackWidthClass = expandedSide === "dark" ? "w-full" : expandedSide === "light" ? "w-0" : "w-1/2";
 
   const tooltipText =
-    expandedSide === "none" ? (mouseSide === "light" ? "Switch to light theme" : "Switch to dark theme") : "Switch to split view";
+    expandedSide === "none"
+      ? mouseSide === "light"
+        ? "Switch to light theme"
+        : "Switch to dark theme"
+      : "Switch to split view";
 
   return (
-    <div ref={rootRef} className="relative h-full w-full overflow-hidden scroll-smooth">
+    <div
+      ref={rootRef}
+      className="relative h-full w-full overflow-hidden scroll-smooth"
+    >
       <div
         className="relative h-screen flex items-center justify-center"
         onMouseEnter={() => tooltipRef.current?.showPopover()}
@@ -105,7 +112,11 @@ export default function Component() {
         </h1>
       </div>
 
-      <div ref={tooltipRef} popover="manual" className="pointer-events-none mix-blend-difference bg-transparent">
+      <div
+        ref={tooltipRef}
+        popover="manual"
+        className="pointer-events-none mix-blend-difference bg-transparent"
+      >
         <div className="px-3 py-1.5 rounded-md whitespace-nowrap bg-white text-black">{tooltipText}</div>
       </div>
     </div>
